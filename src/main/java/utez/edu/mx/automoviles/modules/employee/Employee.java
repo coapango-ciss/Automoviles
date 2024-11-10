@@ -21,6 +21,12 @@ public class Employee {
     @Column(name = "lastname")
     private String lastname;
 
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
     /* Relaciones */
 
     @ManyToOne
@@ -30,33 +36,42 @@ public class Employee {
     /* Contructores */
     public Employee() {}
 
-    public Employee(String name, String surname, String lastname) {
+    public Employee(String name, String surname, String lastname, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.lastname = lastname;
+        this.username = username;
+        this.password = password;
     }
 
-    public Employee(Long id, String name, String surname, String lastname) {
+    public Employee(Long id, String name, String surname, String lastname, String username, String password) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.lastname = lastname;
+        this.username = username;
+        this.password = password;
     }
 
-    public Employee(String name, String surname, String lastname, Rol rol) {
-        this.name = name;
-        this.surname = surname;
-        this.lastname = lastname;
+    public Employee(Rol rol, String password, String username, String lastname, String surname, String name) {
         this.rol = rol;
+        this.password = password;
+        this.username = username;
+        this.lastname = lastname;
+        this.surname = surname;
+        this.name = name;
     }
 
-    public Employee(Long id, String name, String surname, String lastname, Rol rol) {
+    public Employee(Long id, String name, String surname, String lastname, String username, String password, Rol rol) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.lastname = lastname;
+        this.username = username;
+        this.password = password;
         this.rol = rol;
     }
+
 
     /* Getters & Setters */
 
@@ -98,5 +113,21 @@ public class Employee {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
